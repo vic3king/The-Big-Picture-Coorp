@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { hasQueryParam, validateUrls } = require('../src/utils');
+import { hasQueryParam, validateUrls, generateImagePath } from '../src/utils';
 
 describe('hasQueryParam', () => {
     it('should return true for URLs with query parameters', () => {
@@ -40,5 +39,16 @@ describe('validateUrls', () => {
         const urls = ['invalid1', 'invalid2'];
         const result = validateUrls(urls);
         expect(result).toEqual([]);
+    });
+});
+
+describe('generateImagePath', () => {
+    it('should generate a new image name without query parameters', () => {
+        const url = 'https://example.com/image.jpg';
+        const destinationFolder = '/path/to/destination';
+
+        const result = generateImagePath(url, destinationFolder);
+
+        expect(result.includes('/path/to/destination')).toBe(true);
     });
 });

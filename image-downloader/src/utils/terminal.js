@@ -1,6 +1,6 @@
-const yargs = require('yargs');
-const chalk = require('chalk');
-const boxen = require('boxen');
+import yargs from 'yargs';
+import chalk from 'chalk';
+import boxen from 'boxen';
 
 const terminal = () => {
     const usage = chalk.keyword('violet')(
@@ -30,4 +30,4 @@ const terminal = () => {
         .help(true).argv;
 };
 
-module.exports = terminal;
+export default terminal;

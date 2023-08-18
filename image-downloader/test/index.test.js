@@ -1,12 +1,13 @@
-const fs = require('fs');
-const cli = require('../src/cli');
-const imageQueue = require('../src/config/bull');
+import fs from 'fs';
+import cli from '../src/cli';
+import imageQueue from '../src/config/bull';
 
 jest.mock('fs');
 
 jest.mock('../src/config/bull.js', () => ({
     process: jest.fn(),
     add: jest.fn(),
+    on: jest.fn(),
 }));
 
 jest.mock('../src/utils/terminal', () =>
@@ -36,7 +37,9 @@ describe('CLI Script', () => {
         expect(fs.existsSync).toHaveBeenCalledTimes(1);
         expect(fs.existsSync).toHaveBeenCalledWith('output_folder');
         expect(fs.mkdirSync).toHaveBeenCalledTimes(1);
-        expect(fs.mkdirSync).toHaveBeenCalledWith('output_folder', { recursive: true });
+        expect(fs.mkdirSync).toHaveBeenCalledWith('output_folder', {
+            recursive: true,
+        });
         expect(fs.readFileSync).toHaveBeenCalledTimes(1);
         expect(fs.readFileSync).toHaveBeenCalledWith('input.txt', 'utf-8');
         expect(imageQueue.add).toHaveBeenCalledTimes(1);

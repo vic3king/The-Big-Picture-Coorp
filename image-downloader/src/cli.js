@@ -1,15 +1,16 @@
 #! /usr/bin/env node
 
-const fs = require('fs');
-const imageQueue = require('./config/bull');
-const { validateUrls } = require('./utils');
-const terminal = require('./utils/terminal');
+import fs from 'fs';
+import chalk from 'chalk';
+import imageQueue from './config/bull';
+import { validateUrls } from './utils';
+import terminal from './utils/terminal';
 
 imageQueue.process(__dirname + '/config/process.js');
 
-imageQueue.on('completed', function(job, result){
+imageQueue.on('completed', function (job, result) {
     process.exit(0);
-})
+});
 
 const main = async () => {
     const args = terminal();
@@ -36,7 +37,7 @@ const main = async () => {
         );
     }
 
-    console.log('URL(s) added to queue successfully');
+    console.log(chalk.green('\nURL(s) added to queue successfully\n'));
 };
 
-module.exports = main;
+export default main;

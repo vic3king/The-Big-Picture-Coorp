@@ -1,8 +1,5 @@
-const Queue = require('bull');
-const dotenv = require('dotenv');
-
-dotenv.config();
+import Queue from 'bull';
 
 const imageQueue = new Queue('imageQueue');
 
-module.exports = imageQueue;
+export default imageQueue;

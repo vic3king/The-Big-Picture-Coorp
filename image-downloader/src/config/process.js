@@ -1,10 +1,14 @@
-const imageDownloader = require('../utils/imageDownloader');
+import chalk from 'chalk';
+import imageDownloader from '../utils/imageDownloader';
 
-module.exports = async function (job) {
+const process = async function (job) {
     try {
         const { data } = job;
+
         await imageDownloader(data.url, data.outputFolderPath);
     } catch (error) {
-        console.error('Error processing job:', error);
+        console.log(chalk.red('Error processing job:'), error);
     }
 };
+
+export default process;

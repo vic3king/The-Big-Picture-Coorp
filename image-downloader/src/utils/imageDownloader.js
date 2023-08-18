@@ -1,29 +1,23 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+import axios from 'axios';
+import chalk from 'chalk';
+import fs from 'fs';
 
-const { hasQueryParam } = require('./index');
+import { generateImagePath } from './index.js';
 
 const imageDownloader = async (url, destinationFolder) => {
     try {
-        console.log(`Downloading: ${url}`);
+        console.log(chalk.green(`Downloading: ${url}`));
 
         const response = await axios.get(url, { responseType: 'arraybuffer' });
 
-        let imageFileName = path.basename(url);
-
-        if (hasQueryParam(imageFileName)) {
-            imageFileName = imageFileName.split('?')[0];
-        }
-
-        const imagePath = path.join(destinationFolder, imageFileName);
+        const imagePath = generateImagePath(url, destinationFolder);
 
         fs.writeFileSync(imagePath, response.data);
 
-        console.log(`Downloaded: ${url}`);
+        console.log(chalk.white(`Downloaded: ${url}`));
     } catch (error) {
-        console.log(`Error downloading: ${error}`);
+        console.log(chalk.red(`Error downloading: ${url}`), error);
     }
 };
 
-module.exports = imageDownloader;
+export default imageDownloader;
