@@ -7,6 +7,11 @@ The Big Picture Corp Image Downloader, a simple cli tool that enables us downloa
 **Download folder**
 
 ```
+This project needs redis to execute its bull queue system which I used for batching, So make sure to have that running first
+quickest way would be to run this docker command
+
+# docker run -p 6379:6379 -it redis/redis-stack-server:latest
+
 # Switch to directory
 cd image-downloader folder
 
@@ -18,6 +23,7 @@ npm install -g
 
 # Run command
 image-downloader -f images.txt -d downloads
+
 ```
 
 ## Testing
@@ -29,6 +35,7 @@ $ npm run test
 ## Technologies
 
 - [NodeJS](http://nodejs.org/en) is a JavaScript runtime built on Chrome's V8 JavaScript engine
+- [Redis](https://redis.io/) The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.
 - [fs module](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)The Node.js file system module allows you to work with the file system on your computer 
 - [bull](https://github.com/OptimalBits/bull) The fastest, most reliable, Redis-based queue for Node.
 - [Jest](https://jestjs.io/)Jest is a delightful JavaScript Testing Framework with a focus on simplicity.

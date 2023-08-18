@@ -3,8 +3,6 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const { REDIS_URL } = process.env;
-
-const imageQueue = new Queue('imageQueue', REDIS_URL);
+const imageQueue = new Queue('imageQueue');
 
 module.exports = imageQueue;
