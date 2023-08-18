@@ -24,6 +24,8 @@ npm install -g
 # Run command
 image-downloader -f images.txt -d downloads
 
+# See more options
+image-downloader -h
 ```
 
 ## Testing
