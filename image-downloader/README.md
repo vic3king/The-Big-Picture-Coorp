@@ -7,7 +7,7 @@ The Big Picture Corp Image Downloader, a simple cli tool that enables us downloa
 **Download folder**
 
 ```
-This project needs redis to execute its bull queue system which I used for batching, So make sure to have that running first
+This project needs redis to execute its bull queue system which I used for batching to make process more efficient and fail proof, So make sure to have that running first
 quickest way would be to run this docker command
 
 # docker run -p 6379:6379 -it redis/redis-stack-server:latest
