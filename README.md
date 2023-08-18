@@ -23,6 +23,7 @@ npm install -g
 
 # Run command
 image-downloader -f images.txt -d downloads
+-f and 0d can also be file paths to wherever you want to read and write to
 
 # See more options
 image-downloader -h
