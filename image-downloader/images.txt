@@ -1,0 +1,1 @@
+https://fastly.picsum.photos/id/655/200/200.jpg?hmac=skyBShySCLoGXt4Gy91C5mmi2yQeWaqtypiJFwTKM4M "not-a-url" "https://invalid" 1
