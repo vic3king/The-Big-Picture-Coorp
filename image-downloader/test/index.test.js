@@ -1,10 +1,6 @@
 const fs = require('fs');
 const cli = require('../src/cli');
 const imageQueue = require('../src/config/bull');
-const terminal = require('../src/utils/terminal');
-
-const mockData =
-    'https://fastly.picsum.photos/id/655/200/200.jpg?hmac=skyBShySCLoGXt4Gy91C5mmi2yQeWaqtypiJFwTKM4M "not-a-url" "https://invalid", 1';
 
 jest.mock('fs');
 
@@ -34,7 +30,7 @@ afterAll(() => {
 });
 
 describe('CLI Script', () => {
-    it('should add URLs to the queue and create output folder', async () => {
+    it('should add URLs to the queue and create output folder', () => {
         cli();
 
         expect(fs.existsSync).toHaveBeenCalledTimes(1);

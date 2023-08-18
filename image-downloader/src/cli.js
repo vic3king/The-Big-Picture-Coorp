@@ -7,6 +7,10 @@ const terminal = require('./utils/terminal');
 
 imageQueue.process(__dirname + '/config/process.js');
 
+imageQueue.on('completed', function(job, result){
+    process.exit(0);
+})
+
 const main = async () => {
     const args = terminal();
 
