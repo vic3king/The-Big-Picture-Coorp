@@ -31,7 +31,11 @@ image-downloader -f images.txt -d downloads
 ```
 $ npm run test
 ```
-
+## NPM
+ we can decide to publish this package for public use
+ - npm login
+ - npm publish
+  
 ## Technologies
 
 - [NodeJS](http://nodejs.org/en) is a JavaScript runtime built on Chrome's V8 JavaScript engine
